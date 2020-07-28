@@ -1,6 +1,6 @@
 # DMS Report
 
-This repo contains a python script while exports DMS reports
+This repo contains a python script which exports DMS report.
 
 ## Repository Structure
 
@@ -9,7 +9,6 @@ This repo contains a python script while exports DMS reports
 ├── CHANGELOG.md
 ├── CONTRIBUTORS.txt
 ├── README.md
-├── config.json
 └── get_dms_report.py
 ```
 
@@ -17,7 +16,6 @@ This repo contains a python script while exports DMS reports
 
 - Install [Python3](https://www.python.org/downloads/)
 - Install [boto3](https://pypi.org/project/boto3/) package
-- Update appropriate values in the [configuration](config.json) file
 - Setup [AWS Credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in your local machine
 
 ## Usage

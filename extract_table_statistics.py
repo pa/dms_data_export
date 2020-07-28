@@ -11,7 +11,7 @@ def get_table_statistics(client, replication_task_arns):
     Get DMS Table Statistics
     :client: boto3 client
     :replication_task_arns: The Amazon Resource Name (ARN) of the replication task
-    :return: returns request response
+    :return: Table statistics as a json response
     """
     marker = ''
     table_statistics = []
@@ -42,26 +42,27 @@ if __name__ == "__main__":
     # Get Region from User
     region = input("Region: ")
 
-    migration_task_arns = []
-    print("Migration Task Arns (or Enter to quit): ")
+    # Get list of Replication Task ARNs from User
+    replication_task_arns = []
+    print("Replication Task Arns (or Enter to quit): ")
 
     while True:
-        migration_task_arn = input()
-        if not migration_task_arn:
+        replication_task_arn = input()
+        if not replication_task_arn:
             break
         else:
-            migration_task_arns.append(migration_task_arn)
-
-    print("Extracting Table Statistics...\n")
+            replication_task_arns.append(replication_task_arn)
 
     # calling dms client
     client = boto3.client('dms', region_name=region)
+
+    print("Extracting Table Statistics...\n")
 
     # Extracting Table statistics from given Database Migration Task ARNs
     with open("table_statistics" + time.strftime("%Y_%m_%d-%H_%M_%S") + ".csv", "w", newline="") as table_statistics_file:
         title = "SchemaName,TableName,Inserts,Deletes,Updates,Ddls,FullLoadRows,FullLoadCondtnlChkFailedRows,FullLoadErrorRows,FullLoadStartTime,FullLoadEndTime,FullLoadReloaded,LastUpdateTime,TableState,ValidationPendingRecords,ValidationFailedRecords,ValidationSuspendedRecords,ValidationState,ValidationStateDetails".split(",")
         cw = csv.DictWriter(table_statistics_file, title, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         cw.writeheader()
-        cw.writerows(get_table_statistics(client, migration_task_arns))
+        cw.writerows(get_table_statistics(client, replication_task_arns))
 
     print("\n\nCreated DMS Table Statistics Report!!!")

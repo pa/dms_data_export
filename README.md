@@ -9,7 +9,7 @@ This repo contains a python script which exports DMS report.
 ├── CHANGELOG.md
 ├── CONTRIBUTORS.txt
 ├── README.md
-└── get_dms_report.py
+└── extract_table_statistics.py
 ```
 
 ## Pre-requisite
@@ -20,7 +20,8 @@ This repo contains a python script which exports DMS report.
 
 ## Usage
 
-- Run [python](get_dms_report.py) script
+- Run [python](extract_table_statistics.py) script
+
   ```bash
   ✗ python3 get_dms_report.py
       Region: us-west-2
@@ -35,6 +36,7 @@ This repo contains a python script which exports DMS report.
 
       Created DMS Table Statistics Report!!!
   ```
+
 - Report File will be in the root directory
 
 ## License

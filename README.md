@@ -20,11 +20,22 @@ This repo contains a python script which exports DMS report.
 
 ## Usage
 
-Run [python](get_dms_report.py) script
+- Run [python](get_dms_report.py) script
+  ```bash
+  ✗ python3 get_dms_report.py
+      Region: us-west-2
+      Migration Task Arns (or Enter to quit):
+      arn:aws:dms:us-west-2:xxxxxxx:task:xxxxxxx
+      arn:aws:dms:us-west-2:xxxxxxx:task:xxxxxxx
+      arn:aws:dms:us-west-2:xxxxxxx:task:xxxxxxx
 
-```bash
-python3 get_dms_report.py
-```
+      Extracting Table Statistics...
+
+      Tasks: 3 of 3
+
+      Created DMS Table Statistics Report!!!
+  ```
+- Report File will be in the root directory
 
 ## License
 
